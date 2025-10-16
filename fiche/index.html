@@ -1,0 +1,68 @@
+<style>
+    .fiche {
+        display: grid;
+        grid-template-columns: 150px 1fr; /* Label fixe, champ extensible */
+        margin: 1rem auto;
+        padding: 1rem;
+        background: transparent;
+        align-items: center;
+        width: 100%;
+        max-width: 600px;
+        box-sizing: border-box;
+        border: 1px solid #ddd; /* Bordure pour la fiche */
+    }
+
+    .fiche label {
+        font-weight: bold;
+        text-align: left;
+        padding: 0.4rem 1rem 0.4rem 0.4rem;
+    }
+
+    .fiche output {
+        padding: 0.25rem;
+        text-align: left;
+        word-break: break-word;
+        border: 0 ;
+        background-color: transparent;
+    }
+
+
+    @media (max-width: 600px) {
+        .fiche {
+            grid-template-columns: 1fr; /* Une seule colonne */
+        }
+
+        .fiche label {
+            padding-bottom: 0;
+        }
+
+        .fiche output,
+        .fiche input[type="checkbox"] {
+            margin-bottom: 1em;
+        }
+    }
+</style>
+
+<div class="d-flex flex-row justify-content-center">
+    <div class="form-recherche">
+        <label for="nomR">Nom de l'étudiant :</label>
+        <input id="nomR" type="text" pattern="^[a-zA-Z ]+$" placeholder="Saisir les premières lettres"
+               autocomplete="off">
+    </div>
+</div>
+<div class="fiche">
+    <label for="nom" >Nom : </label>
+    <output id="nom" ></output>
+    <label for="prenom" >Prénom : </label>
+    <output id="prenom" ></output>
+    <label for="sexe" >Sexe : </label>
+    <output class="form-control court" id="sexe"></output>
+    <label for="dateNaissance" >Né(e) le : </label>
+    <output id="dateNaissance"  style="width: 20px"></output>
+    <label for="age" >Âge :</label>
+    <output id="age"  ></output>
+    <label for="libelleCourt" >Option : </label>
+    <output  id="libelleCourt"></output>
+    <label for="photo" >Photo : </label>
+    <output  id="photo" style="width: 150px; height: 150px"></output>
+</div>

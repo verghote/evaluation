@@ -1,0 +1,60 @@
+<div class="d-flex flex-row justify-content-center">
+    <div class="form-recherche">
+        <label for="nomR">Sélection de l'étudiant :</label>
+        <input id="nomR" type="text"  placeholder="Saisir les premières lettres"   autocomplete="off">
+    </div>
+</div>
+
+<div class="formulaire" id="formulaire" style="max-width: 900px;  margin-left: auto;  margin-right: auto; display: none">
+    <div id="msg"></div>
+    <!-- Nom -->
+    <label for="nom" class="obligatoire">
+        Nom
+    </label>
+    <input id="nom"
+           type="text"
+           required
+           maxlength="20"
+           pattern="^[A-Za-zÀÂÄÆÇÈÉÊËÎÏÔŒÙÛÜŸàâäæçèéêëîïôœùûüÿ]+([ '\-][A-Za-zÀÂÄÆÇÈÉÊËÎÏÔŒÙÛÜŸàâäæçèéêëîïôœùûüÿ]+)*$"
+           title="Caractères autorisés : lettres, avec éventuellement des espaces, tirets ou apostrophes, mais jamais à la suite ou au début/fin."
+           autocomplete="off">
+    <!-- Prénom -->
+    <label for="prenom" class="obligatoire">
+        Prénom
+    </label>
+    <input id="prenom"
+           type="text"
+           required
+           pattern="^[A-Za-zÀÂÄÆÇÈÉÊËÎÏÔŒÙÛÜŸàâäæçèéêëîïôœùûüÿ]+([ '\-][A-Za-zÀÂÄÆÇÈÉÊËÎÏÔŒÙÛÜŸàâäæçèéêëîïôœùûüÿ]+)*$"
+           title="Caractères autorisés : lettres, avec éventuellement des espaces, tirets ou apostrophes, mais jamais à la suite ou au début/fin."
+           maxlength="20"
+           minlength="3"
+           autocomplete="off">
+    <!-- Sexe -->
+    <label for="sexe">Sexe</label>
+    <select id="sexe" style=" display: block; width: 180px;">
+        <option value="M">Masculin</option>
+        <option value="F">Féminin</option>
+    </select>
+    <!-- Date de naissance -->
+    <label for="dateNaissance">Date de naissance</label>
+    <input id="dateNaissance" type="date" style="display : block" required>
+    <div class="d-flex justify-content-evenly">
+        <button id="btnModifier" class="btn btn-sm btn-outline-danger">Enregistrer les modifications</button>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="age" style="margin-bottom: 4px;">Âge</label>
+            <output id="age"></output>
+        </div>
+        <div class="col-sm-4">
+            <label for="libelleCourt" style="margin-bottom: 4px;">Option</label>
+            <output id="libelleCourt"></output>
+        </div>
+        <div class="col-sm-4">
+            <label for="photo" style="margin-bottom: 4px;">Photo</label>
+            <output id="photo" style="width: 150px; height: 150px;"></output>
+        </div>
+    </div>
+</div>
+
