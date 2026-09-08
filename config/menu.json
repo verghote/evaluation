@@ -1,0 +1,23 @@
+{
+  "brand": {
+    "label": "Évaluation sur la consultation",
+    "href": "/",
+    "icon": "/css/logo.png"
+  },
+
+  "items": [
+    {
+      "label": "Consultation",
+      "children": [
+        {
+          "label": "Liste des étudiants",
+          "href": "/liste"
+        },
+        {
+          "label": "Trombinoscope des étudiants",
+          "href": "/trombinoscope"
+        }
+      ]
+    }
+  ]
+}

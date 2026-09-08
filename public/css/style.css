@@ -1,0 +1,309 @@
+/* ------------------------------------------------------------
+   Feuille de style globale
+   Mise à jour : 08/09/2026
+   Version : 2026.1
+------------------------------------------------------------ */
+
+/*
+:root — Déclaration des variables CSS globales (Custom Properties)
+Les variables permettent de centraliser les couleurs, tailles, etc.
+Facile à maintenir : une seule modification suffit pour répercuter partout.
+*/
+
+:root {
+    --background-color: white;
+
+    --background-color-header: #0790e4;
+    --background-color-footer: #0790e4;
+    --background-color-thead: transparent;
+
+    --text-color: #282828;
+    --text-color-header: white;
+    --text-color-footer: white;
+    --text-color-hover: rgb(249, 237, 5);
+
+    --border-color-table: #68a0dd;
+
+    --taille-police: clamp(12px, 0.5vw + 12px, 20px);
+}
+
+/*
+* — Sélecteur universel : normalise les marges et paddings par défaut.
+box-sizing: border-box permet de ne pas inclure les paddings/marges dans le calcul de largeur/hauteur.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/*
+html, body — Définissent le comportement global de la page HTML
+*/
+html,
+body {
+    font-family: 'PT Serif', serif;
+    height: 100%;
+    font-weight: 400;
+    overflow-x: hidden; /* Empêche le scroll horizontal */
+    background: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: var(--taille-police);
+}
+
+body {
+    margin: 0;
+}
+
+html {
+    font-size: var(--taille-police);
+}
+
+/*
+main — Zone principale de contenu (entre header et footer)
+flex-grow permet d’occuper tout l’espace vertical restant.
+*/
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 5px;
+}
+
+main iframe {
+    flex-grow: 1;
+    width: 100%;
+    border: none;
+}
+
+p {
+    margin: 0;
+    padding: 0
+}
+
+/*
+ Tableau
+*/
+
+table {
+    table-layout: fixed;
+    border: 1px solid var(--border-color-table);
+    padding: 5px;
+}
+
+tr {
+    line-height: 20px;
+}
+
+
+thead {
+    font-weight: bold;
+    border: 1px solid var(--border-color-table);
+    background-color: var(--background-color-thead);
+}
+
+tbody {
+    /*  background-color: #E0E0E0; */
+    border: 1px solid var(--border-color-table);
+}
+
+th {
+    line-height: 40px;
+    padding: 5px;
+}
+
+td {
+    padding: 5px;
+}
+
+a, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: var(--text-color)
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Supprime les espaces vides sous les images */
+    margin: 0 auto; /* Centre les images horizontalement si nécessaire */
+}
+
+.page-title {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    margin-left: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    padding-bottom: 0.5rem;
+    text-decoration: underline;
+}
+
+/* les champs de saisie */
+
+fieldset {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+legend {
+    width: auto;
+    padding: 0 5px;
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: inherit;
+    border-bottom: none;
+    text-align: left;
+    float: none !important;
+}
+
+label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #6c6c6c;
+    margin-right: 10px;
+    display: block;
+}
+
+
+input, textarea {
+    border: 1px solid lightgray;
+    border-radius: 0;
+    color: #0f7df5;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+input[type=date] {
+    width: 180px;
+}
+
+input:disabled, select:disabled {
+    border: 1px solid lightgray;
+    border-radius: 0;
+    cursor: not-allowed;
+}
+
+input:focus, select:focus {
+    border: 2px solid dodgerblue;
+    background-color: #fcfcfc;
+    border-radius: 0;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+textarea:focus {
+    border: 2px solid dodgerblue;
+    background-color: #fcfcfc;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+input::placeholder {
+    font-size: 0.8rem;
+}
+
+/* Style pour la bordure de la case à cocher */
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: #1d1d1d 1px solid;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px; /* Pour une bordure arrondie */
+    outline: none;
+}
+
+/* Style pour la coche à l'intérieur de la case à cocher */
+
+input[type="checkbox"]:checked {
+    background-color: #81ed81;
+    border: #1d1d1d 1px solid;
+}
+
+/* RETIRER LES FLÈCHES DES INPUTS NUMBER */
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Chrome */
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+select {
+    border: 1px solid lightgray;
+    border-radius: 0;
+    color: #0f7df5;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+
+/* style pour un champ de recherche fusionné avec son label  */
+
+.form-recherche {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-recherche label {
+    white-space: nowrap; /* pour éviter le retour à la ligne */
+}
+
+.form-recherche input {
+    flex: 1 1 auto; /* prend tout l'espace disponible */
+    max-width: 350px;
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+}
+
+.form-recherche input:focus {
+    background-color: #fcfcfc;
+}
+
+.form-recherche input::placeholder {
+    font-size: 0.65rem;
+}
+
+output {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    min-width: 150px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: #e7e6e6;
+    vertical-align: middle;
+    min-height: 38px; /* hauteur proche d'un input */
+}
