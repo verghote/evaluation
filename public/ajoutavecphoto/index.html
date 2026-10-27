@@ -1,0 +1,90 @@
+<div class="page-card">
+    <div class="page-header">
+        <div class="page-header-top">
+            <h1 class="page-title">Nouvel étudiant</h1>
+        </div>
+    </div>
+    <div class="page-body">
+        <div class="formulaire">
+            <div id="msg"></div>
+
+            <div class="form-grid">
+                <!-- Colonne Gauche : Saisies texte/dates -->
+                <div class="form-champs form-colonne">
+                    <!-- Nom -->
+                    <div class="field-group">
+                        <label for="nom" class="obligatoire">
+                            Nom <span class="commentaire">(30 caract. max, lettres non accentuées et espace)</span>
+                        </label>
+                        <input id="nom"
+                               type="text"
+                               required
+                               pattern="^[A-Za-z]( ?[A-Za-z])*$"
+                               maxlength="30"
+                               minlength="3"
+                        >
+                    </div>
+
+                    <!-- Prénom -->
+                    <div class="field-group">
+                        <label for="prenom" class="obligatoire">
+                            Prénom <span class="commentaire">(30 caract. max, lettres accentuées, espace, apostrophe et tiret)</span>
+                        </label>
+                        <input id="prenom"
+                               type="text"
+                               required
+                               pattern="^[a-zA-ZÀ-ÖØ-öø-ÿœŒ]+([ '\-][a-zA-ZÀ-ÖØ-öø-ÿœŒ]+)*$"
+                               maxlength="30"
+                               minlength="3"
+                        >
+                    </div>
+
+                    <!-- Sexe -->
+                    <div class="field-group">
+                        <label for="sexe" class="obligatoire">Sexe</label>
+                        <select id="sexe" style="width: 150px;">
+                            <option value="M">Homme</option>
+                            <option value="F">Femme</option>
+                        </select>
+                    </div>
+
+                    <!-- Date de naissance -->
+                    <div class="field-group">
+                        <label for="dateNaissance" class="obligatoire">Date de naissance</label>
+                        <input id="dateNaissance" type="date" required>
+                    </div>
+
+                    <!-- Option -->
+                    <div class="field-group">
+                        <label for="idOption" class="obligatoire">Option</label>
+                        <select id="idOption" required></select>
+                    </div>
+                </div>
+
+                <!-- Colonne Droite : Photo / Upload -->
+                <div class="form-photo form-colonne">
+                    <div class="field-group">
+                        <label for="fichier">
+                            Photo de l'étudiant <span class="facultatif">(facultatif)</span>
+                        </label>
+                        <div id="cible" class="upload">
+                            <div class="upload-titre">Cliquez ou glissez-déposez la photo de l'étudiant</div>
+                            <div class="upload-details">
+                                <span>Formats acceptés : <strong>JPG, PNG</strong></span>
+                                <span>Taille maximale : <strong>150 Ko</strong></span>
+                                <span>Dimensions limitées à <strong>150 × 150 px</strong></span>
+                            </div>
+                        </div>
+                        <div id="nomFichier" style="padding-left: 5px; font-size: 0.8rem;"></div>
+                        <input type="file" id="fichier" accept=".jpg, .jpeg, .png, .webp, .avif" style="display: none;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action -->
+            <div class="form-actions mt-3">
+                <button id="btnAjouter" class="btn btn-danger">✚ Ajouter</button>
+            </div>
+        </div>
+    </div>
+</div>

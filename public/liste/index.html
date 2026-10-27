@@ -1,0 +1,48 @@
+<div class="page-card">
+    <header class="page-header">
+        <div class="page-header-top">
+            <h1 class="page-title">
+                Liste des élèves
+            </h1>
+        </div>
+    </header>
+
+    <div class="page-body">
+        <div class="eleve-table-wrapper">
+            <table id="leTableau" class="eleve-table">
+                <thead>
+                <tr>
+                    <th data-champ="nomPrenom" data-type="text">
+                        Nom et prénom
+                    </th>
+                    <th class="col-sexe">Sexe</th>
+                    <th data-champ="dateNaissanceFr"
+                        data-type="date"
+                        class="col-naissance">
+                        Né(e) le
+                    </th>
+                    <th data-champ="libelleCourt" data-type="text">
+                        Option
+                    </th>
+                    <th>Photo</th>
+                </tr>
+                </thead>
+
+                <tbody id="lesLignes"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modèle d'une ligne du tableau -->
+<template id="modeleLigne">
+    <tr tabindex="0">
+        <td class="col-nom"></td>
+        <td class="col-sexe"></td>
+        <td class="col-naissance"></td>
+        <td class="col-option"></td>
+        <td class="col-photo">
+            <img src="" alt="">
+        </td>
+    </tr>
+</template>
