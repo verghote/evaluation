@@ -1,0 +1,24 @@
+La solution de Corentin repose sur un découpage rigide en PHP (32 étudiants par page via array_chunk + <pagebreak />).
+
+Bien qu'elle permette un contrôle strict, elle comporte plusieurs inconvénients majeurs
+d'un point de vue architecture, maintenance et rendu HTML/CSS :
+
+1. Inflexibilité et rupture du design (Hardcoding)
+Nombre d'éléments figé (32) : Le chiffre 32 est inscrit en dur dans le code (array_chunk($lesEtudiants, 32)
+et boucles de 4 lignes × 8 colonnes). Si le design change (ex: marges modifiées, logo ajouté en en-tête, taille des images augmentée), la hauteur physique d'une case va varier, mais le script continuera d'essayer de caser 32 étudiants par page, ce qui provoquera un débordement indésirable sur une 2ᵉ page.
+
+Format de page captif : Si vous décidez de passer le document du format Paysage au format Portrait, ou du format A4 au format A3, le script continuera de générer une grille de 4×8, ce qui détruira complètement la mise en page.
+
+2. Complexité algorithmique et maintenance lourde
+Superposition de boucles imbriquées : Vous devez gérer une découpe en tableau (array_chunk), puis une boucle de lignes (4), puis une boucle de colonnes (8), tout en calculant un index relatif ($numeroLigne * 8 + $numeroColonne). C'est inutilement complexe par rapport à une simple boucle foreach.
+
+Gestion manuelle des cases vides : Le code doit vérifier si $etudiant === null pour générer manuellement des balises <td> vides afin de compléter la grille de la dernière page.
+Cela alourdit le code pour un besoin purement visuel.
+
+3. Redondance HTML et performances
+Multiplication des structures HTML : Chaque groupe de 32 étudiants génère un nouveau bloc <table>, <tbody>, et pour chaque étudiant, une sous-table complète (<table>...</table>).
+
+Poids du document et traitement mPDF : Multiplier les balises HTML et réinsérer les styles en ligne à chaque itération alourdit inutilement le flux HTML transmis à mPDF, ce qui consomme plus de mémoire PHP et ralentit la génération du PDF.
+
+4. Violation de la séparation des responsabilités (SoC)
+Logique métier vs Logique de présentation : La pagination physique est une responsabilité de la couche de rendu (CSS / moteur PDF), pas de la logique PHP. C'est à mPDF (via le CSS) de décider où couper la page en fonction des contraintes de taille, et non à PHP d'imposer un nombre arbitraire d'éléments.

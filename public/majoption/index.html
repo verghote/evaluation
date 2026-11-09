@@ -1,0 +1,34 @@
+<div class="page-card">
+    <div class="page-header">
+        <div class="page-header-top">
+            <h1 class="page-title">
+                Mise à jour de l'option choisie par les étudiants
+            </h1>
+        </div>
+    </div>
+
+    <div class="page-body">
+        <div id="msg"></div>
+
+        <table>
+            <thead>
+            <tr>
+                <th style="width:350px">Nom et prénom</th>
+                <th style="width:500px">Option</th>
+            </tr>
+            </thead>
+
+            <tbody id="lesLignes"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modèle d'une ligne étudiant -->
+<template id="modeleLigne">
+    <tr>
+        <td class="col-nom-prenom"></td>
+        <td class="col-option">
+            <select class="select-option"></select>
+        </td>
+    </tr>
+</template>

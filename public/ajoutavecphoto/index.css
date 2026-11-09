@@ -1,0 +1,148 @@
+/* =========================================================
+   DISPOSITION DU FORMULAIRE ET COLONNES ENGRID
+   ========================================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Encadrement léger des colonnes */
+.form-colonne {
+    background-color: #ffffff;
+    border: 1px solid #e3e8ee;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Alignement vertical des groupes de champs */
+.form-champs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem; /* Écart réduit entre deux champs consécutifs */
+}
+
+/* Structure de chaque couple Label + Input */
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; /* Très faible écart vertical entre le label et son input */
+}
+
+.field-group label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #212529;
+}
+
+
+.facultatif {
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Champs de saisie */
+.form-champs input[type="text"],
+.form-champs input[type="date"],
+.form-champs select {
+    width: 100%;
+    max-width: 350px;
+    padding: 0.4rem 0.6rem;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Colonne Photo */
+.form-photo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Zone d'action */
+.form-actions {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 1rem;
+}
+
+/* =========================================================
+   ZONE DE GLISSER-DÉPOSER
+   ========================================================= */
+
+.upload {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 220px;
+    padding: 1.25rem 1rem;
+    margin-top: 0.25rem;
+    background: linear-gradient(180deg, #f8fbfd 0%, #edf5fc 100%);
+    border: 2px dashed #0f4c81;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.upload .upload-titre {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f4c81;
+    text-align: center;
+    width: 100%;
+}
+
+.upload .upload-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.4rem 1.2rem;
+    font-size: 0.85rem;
+    color: #556980;
+    width: 100%;
+    padding-left: 0.2rem;
+    box-sizing: border-box;
+}
+
+.upload .upload-details span strong {
+    color: #212529;
+}
+
+.upload:hover {
+    background: linear-gradient(180deg, #edf5fc 0%, #e1effa 100%);
+    border-color: #1769aa;
+    box-shadow: 0 4px 12px rgba(15, 76, 129, 0.15);
+}
+
+/* =========================================================
+   RESPONSIVE (Petits écrans)
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Retrait des encadrements individuels pour fusionner le formulaire sur mobile */
+    .form-colonne {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .form-champs input[type="text"],
+    .form-champs input[type="date"],
+    .form-champs select {
+        max-width: 100%;
+    }
+}
